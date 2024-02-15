@@ -147,7 +147,9 @@ const generatePDF = ({
 
   pdf.text("VALOR DE FLETE:", 17, 153);
   pdf.text("MONEDA:", 110, 153);
-  pdf.text("COND. PAGO:", 17, 158);
+  pdf.text("RAZON SOCIAL:", 17, 158);
+  pdf.text("CUIT/RUT:", 110, 158);
+  pdf.text("COND. PAGO:", 17, 162);
 
   //////////////////////////////////////////////////
 
@@ -158,9 +160,9 @@ const generatePDF = ({
   // MONEDA DE PAGO
   pdf.text(moneda, 135, 153);
   // CONDICION DE PAGO
-  pdf.text(condicion_pago, 55, 158);
+  pdf.text(condicion_pago, 55, 162);
 
-  pdf.line(15, 160, 195, 160);
+  pdf.line(15, 164, 195, 164);
 
   //////////////////////////////////////////////////
 
@@ -187,7 +189,7 @@ const generatePDF = ({
 
   pdf.line(15, 193, 195, 193);
 
-  pdf.save(path.join(__dirname, "../test.pdf"));
+  pdf.save(path.join(__dirname, "../public/contrato.pdf"));
 };
 
 export default generatePDF;
