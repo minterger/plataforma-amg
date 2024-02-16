@@ -4,6 +4,7 @@ import cors from "cors";
 import { fileURLToPath } from "url";
 import path from "path";
 import indexRouter from "./routes/index.routes.js";
+import userRouter from "./routes/user.routes.js";
 
 import "./database.js";
 
@@ -15,8 +16,8 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 // settings
-app.set(express.json());
-app.set(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // middlewares
 app.use(morgan("dev"));
@@ -24,6 +25,7 @@ app.use(cors());
 
 // routes
 app.use(indexRouter);
+app.use(userRouter);
 
 // path publico
 app.use(express.static(path.join(__dirname, "public")));

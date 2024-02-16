@@ -7,6 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export const getContratoFlete = (req, res) => {
+  const { id } = req.params;
   generatePDF({
     id: uniqid.time("AMG-").toUpperCase(),
     date: "9 de Febrero de 2024",
@@ -30,6 +31,11 @@ export const getContratoFlete = (req, res) => {
       moneda: "USD",
       condicion_pago: "VTO DE PAGO A 30 DIAS",
     },
+    datos_facturacion: {
+      razon_facturacion: "Pantone Blanca Nieves",
+      cuit_rut_facturacion: "27163309217",
+    },
+
     recordatorios:
       "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
   });
