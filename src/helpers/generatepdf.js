@@ -11,6 +11,7 @@ const generatePDF = ({
   datos_tafico: { origen, destino, mercaderia },
   emp_contratada: { empresa, id_tributaria },
   datos_unidad: { placa_tractor, placa_semi, chofer, dni },
+  datos_facturacion: { razon_facturacion, cuit_rut_facturacion },
   contratacion: { valor, moneda, condicion_pago },
   recordatorios,
 }) => {
@@ -149,7 +150,7 @@ const generatePDF = ({
   pdf.text("MONEDA:", 110, 153);
   pdf.text("RAZON SOCIAL:", 17, 158);
   pdf.text("CUIT/RUT:", 110, 158);
-  pdf.text("COND. PAGO:", 17, 162);
+  pdf.text("COND. PAGO:", 17, 163);
 
   //////////////////////////////////////////////////
 
@@ -159,10 +160,12 @@ const generatePDF = ({
   pdf.text(valor, 55, 153);
   // MONEDA DE PAGO
   pdf.text(moneda, 135, 153);
+  pdf.text(razon_facturacion, 55, 158);
+  pdf.text(cuit_rut_facturacion, 135, 158);
   // CONDICION DE PAGO
-  pdf.text(condicion_pago, 55, 162);
+  pdf.text(condicion_pago, 55, 163);
 
-  pdf.line(15, 164, 195, 164);
+  pdf.line(15, 165, 195, 165);
 
   //////////////////////////////////////////////////
 

@@ -1,10 +1,11 @@
 import { Schema, model } from "mongoose";
+import uniqid from "uniqid";
 
 const ObjectId = Schema.ObjectId;
 
 const ViajeSchema = new Schema(
   {
-    id: { type: ObjectId },
+    id: { type: ObjectId, default: uniqid.time("AMG-").toUpperCase() },
     datos_tafico: {
       origen: { type: String, required: true },
       destino: { type: String, required: true },
