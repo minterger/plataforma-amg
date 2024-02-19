@@ -192,6 +192,8 @@ const generatePDF = ({
 
   pdf.line(15, 193, 195, 193);
 
+  console.log(pdf);
+
   pdf.save(path.join(__dirname, "../public/contrato.pdf"));
 };
 

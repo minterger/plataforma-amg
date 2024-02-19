@@ -6,14 +6,12 @@ const ObjectId = Schema.ObjectId;
 const ViajeSchema = new Schema(
   {
     id: { type: ObjectId, default: uniqid.time("AMG-").toUpperCase() },
+    mic: { type: String },
+    crt: { type: String },
     datos_tafico: {
       origen: { type: String, required: true },
       destino: { type: String, required: true },
       mercaderia: { type: String, required: true },
-    },
-    datos_mic: {
-      mic: String,
-      crt: String,
     },
     emp_contratada: {
       empresa: { type: String, required: true },

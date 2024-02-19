@@ -1,14 +1,10 @@
 import { Schema, model } from "mongoose";
 
 const EmpresaSchema = new Schema({
-  emp_contratada: {
-    empresa: { type: String, required: true },
-    id_tributaria: { type: String, required: true },
-  },
-  list_patentes: {
-    placa_semi: [{ type: String }],
-    placa_tractor: [{ type: String }],
-  },
+  empresa: { type: String, required: true },
+  id_tributaria: { type: String, required: true },
+  patente_semi: [{ type: String }],
+  patente_tractor: [{ type: String }],
   choferes: [
     {
       chofer: { type: String },

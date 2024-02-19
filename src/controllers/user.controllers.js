@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import { gentToken } from "../helpers/jsonwebtoken.js";
 
 export const register = async (req, res) => {
   try {
@@ -33,15 +34,25 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await User.find({ email });
+    const user = await User.findOne({ email });
 
-    if (!user) return res.status(404).json({ message: "Usuario no existe" });
+    if (!user)
+      return res
+        .status(404)
+        .json({ auth: !!user, message: "Email o contraseña incorrecta" });
 
     const passwordMatch = await user.comparePassword(password);
 
-    if (passwordMatch)
-      return res.status(404).json({ message: "Contraseña incorrecta" });
+    if (!passwordMatch)
+      return res.status(404).json({
+        auth: passwordMatch,
+        message: "Email o contraseña incorrecta",
+      });
 
-    res.json({ passwordMatch });
-  } catch (error) {}
+    const token = gentToken(user.id);
+    res.json({ auth: passwordMatch, token });
+  } catch (error) {
+    res.status(500).json({ message: "internal server error" });
+    console.error(error);
+  }
 };
