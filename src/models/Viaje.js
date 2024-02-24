@@ -13,13 +13,10 @@ const ViajeSchema = new Schema(
       destino: { type: String, required: true },
       mercaderia: { type: String, required: true },
     },
-    emp_contratada: {
-      empresa: { type: String, required: true },
-      id_tributaria: { type: String, required: true },
-    },
+    emp_contratada: { type: ObjectId, required: true, ref: "Empresa" },
     datos_unidad: {
-      placa_tractor: { type: String, required: true },
-      placa_semi: { type: String, required: true },
+      placa_tractor: { type: ObjectId, required: true, ref: "Vehiculo" },
+      placa_semi: { type: ObjectId, required: true, ref: "Vehiculo" },
       chofer: { type: String, required: true },
       dni: { type: String, required: true },
     },
@@ -29,7 +26,7 @@ const ViajeSchema = new Schema(
       condicion_pago: { type: String, required: true },
     },
     recordatorios: String,
-    status: { type: String, default: "started" },
+    status: { type: String, required: true },
   },
   {
     timestamps: true,

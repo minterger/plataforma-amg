@@ -1,10 +1,16 @@
 import { Schema, model } from "mongoose";
 
+const ObjectId = Schema.ObjectId;
+
 const EmpresaSchema = new Schema({
   empresa: { type: String, required: true },
   id_tributaria: { type: String, required: true },
-  patente_semi: [{ type: String }],
-  patente_tractor: [{ type: String }],
+  vehiculo: [
+    {
+      type: ObjectId,
+      ref: "Vehiculo",
+    },
+  ],
   choferes: [
     {
       chofer: { type: String },
