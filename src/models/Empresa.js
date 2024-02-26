@@ -13,8 +13,8 @@ const EmpresaSchema = new Schema({
   ],
   choferes: [
     {
-      chofer: { type: String },
-      dni: { type: Number },
+      type: ObjectId,
+      ref: "Chofer",
     },
   ],
 });
