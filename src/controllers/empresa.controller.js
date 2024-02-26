@@ -1,6 +1,6 @@
-import Viaje from "../models/Viaje.js";
+import Empresa from "../models/Empresa.js";
 
-export const getViajes = async (req, res) => {
+export const getEmpresas = async (req, res) => {
   try {
     const { page, limit, search } = req.query;
 
@@ -9,12 +9,9 @@ export const getViajes = async (req, res) => {
       limit: limit || 10,
     };
 
-    const viajes = await Viaje.paginate({}, options);
-
-    res.json(viajes);
+    const empresas = await Empresa.paginate({}, options);
   } catch (error) {
     res.status(500).json({ message: "internal server error" });
-
     console.error(error);
   }
 };

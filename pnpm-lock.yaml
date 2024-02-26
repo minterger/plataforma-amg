@@ -250,7 +250,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.9
       '@types/raf': 3.4.3
-      core-js: 3.35.1
+      core-js: 3.36.0
       raf: 3.4.1
       regenerator-runtime: 0.13.11
       rgbcolor: 1.0.1
@@ -312,8 +312,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /core-js@3.35.1:
-    resolution: {integrity: sha512-IgdsbxNyMskrTFxa9lWHyMwAJU5gXOPP+1yO+K59d50VLVAIDAbs7gIv705KzALModfK3ZrSZTPNpC0PQgIZuw==}
+  /core-js@3.36.0:
+    resolution: {integrity: sha512-mt7+TUBbTFg5+GngsAxeKBTl5/VS0guFeJacYge9OmHb+m058UwwIm41SE9T4Den7ClatV57B6TYTuJ0CX1MAw==}
     requiresBuild: true
     dev: false
     optional: true
@@ -727,7 +727,7 @@ packages:
       fflate: 0.4.8
     optionalDependencies:
       canvg: 3.0.10
-      core-js: 3.35.1
+      core-js: 3.36.0
       dompurify: 2.4.7
       html2canvas: 1.4.1
     dev: false

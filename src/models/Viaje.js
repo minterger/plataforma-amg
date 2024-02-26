@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import MongoosePaginate from "mongoose-paginate-v2";
 import uniqid from "uniqid";
 
 const ObjectId = Schema.ObjectId;
@@ -17,8 +18,7 @@ const ViajeSchema = new Schema(
     datos_unidad: {
       placa_tractor: { type: ObjectId, required: true, ref: "Vehiculo" },
       placa_semi: { type: ObjectId, required: true, ref: "Vehiculo" },
-      chofer: { type: String, required: true },
-      dni: { type: String, required: true },
+      chofer: { type: ObjectId, required: true, ref: "Chofer" },
     },
     contratacion: {
       valor: { type: Number, required: true },
@@ -32,5 +32,7 @@ const ViajeSchema = new Schema(
     timestamps: true,
   }
 );
+
+ViajeSchema.plugin(MongoosePaginate);
 
 export default model("Viaje", ViajeSchema);
