@@ -4,7 +4,9 @@ import cors from "cors";
 import { fileURLToPath } from "url";
 import path from "path";
 import indexRouter from "./routes/index.routes.js";
+import empresaRouter from "./routes/empresa.routes.js";
 import userRouter from "./routes/user.routes.js";
+import viajesRouter from "./routes/viajes.routes.js";
 
 import "./database.js";
 
@@ -25,7 +27,9 @@ app.use(cors());
 
 // routes
 app.use(indexRouter);
+app.use(empresaRouter);
 app.use(userRouter);
+app.use(viajesRouter);
 
 // path publico
 app.use(express.static(path.join(__dirname, "public")));
