@@ -1,5 +1,10 @@
 import Viaje from "../models/Viaje.js";
 
+/**
+ * Obtiene todos los viajes
+ * @param {Object} req proviene de Express
+ * @param {Object} res proviene de Express
+ */
 export const getViajes = async (req, res) => {
   try {
     const { page, limit, search } = req.query;

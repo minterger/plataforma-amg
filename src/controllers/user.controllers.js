@@ -1,5 +1,5 @@
 import User from "../models/User.js";
-import { gentToken } from "../helpers/jsonwebtoken.js";
+import { genToken } from "../helpers/jsonwebtoken.js";
 
 export const register = async (req, res) => {
   try {
@@ -49,7 +49,7 @@ export const login = async (req, res) => {
         message: "Email o contraseña incorrecta",
       });
 
-    const token = gentToken(user.id);
+    const token = genToken(user.id);
     res.json({ auth: passwordMatch, token });
   } catch (error) {
     res.status(500).json({ message: "internal server error" });

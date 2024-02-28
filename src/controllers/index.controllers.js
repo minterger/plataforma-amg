@@ -8,6 +8,11 @@ import Viaje from "../models/Viaje.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+/**
+ * obtiene el contrate de flete segun el id del viaje
+ * @param {Object} req proviene de Express
+ * @param {Object} res proviene de Express
+ */
 export const getContratoFlete = async (req, res) => {
   const { id } = req.params;
 
