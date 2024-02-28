@@ -1,7 +1,6 @@
 import uniqid from "uniqid";
 import { fileURLToPath } from "url";
 import path from "path";
-// import fs from "fs/promises";
 import generatePDF from "../helpers/generatepdf.js";
 import Empresa from "../models/Empresa.js";
 import Viaje from "../models/Viaje.js";
@@ -46,26 +45,4 @@ export const getContratoFlete = async (req, res) => {
       "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
   });
   res.sendFile(path.join(__dirname, "../public/contrato.pdf"));
-
-  // await fs.unlink("../public/contrato.pdf");
-};
-
-export const postEmpresa = async (req, res) => {
-  try {
-    const { empresa, id_tributaria } = req.body;
-
-    const isEmpresaExist = await Empresa.findOne({ id_tributaria });
-
-    if (isEmpresaExist) res.status(404).json({ message: "Empresa existente" });
-
-    const mewEmpresa = new Empresa({
-      empresa,
-      id_tributaria,
-    });
-
-    await mewEmpresa.save();
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "internal server error" });
-  }
 };

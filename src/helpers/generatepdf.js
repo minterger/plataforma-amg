@@ -5,6 +5,10 @@ import path from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+/**
+ * Genera pdf del contrato
+ * @param {Object} param0 objeto de empresa
+ */
 const generatePDF = ({
   id,
   date,
@@ -191,8 +195,6 @@ const generatePDF = ({
   );
 
   pdf.line(15, 193, 195, 193);
-
-  console.log(pdf);
 
   pdf.save(path.join(__dirname, "../public/contrato.pdf"));
 };

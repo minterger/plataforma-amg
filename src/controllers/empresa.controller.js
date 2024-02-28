@@ -1,5 +1,11 @@
 import Empresa from "../models/Empresa.js";
 
+/**
+ * controlador que retorna array paginada con empresas
+ * @param {Object} req proviene de Express
+ * @param {Object} res proviene de Express
+ * @returns retorna todas las empresas
+ */
 export const getEmpresas = async (req, res) => {
   try {
     const { page, limit, search } = req.query;
@@ -10,12 +16,19 @@ export const getEmpresas = async (req, res) => {
     };
 
     const empresas = await Empresa.paginate({}, options);
+    return res.json(empresas);
   } catch (error) {
     res.status(500).json({ message: "internal server error" });
     console.error(error);
   }
 };
 
+/**
+ * controlador para crear una Empresa requiere dato "empresa" y "id_tributaria" en el body
+ * @param {Object} req proviene de Express
+ * @param {Object} res proviene de Express
+ * @returns retorna si la empresa fue creada con exito
+ */
 export const createEmpresa = async (req, res) => {
   try {
     const { empresa, id_tributaria } = req.body;
@@ -43,6 +56,12 @@ export const createEmpresa = async (req, res) => {
   }
 };
 
+/**
+ * Elimina una empresa por id que viene como un parametro id_tributaria
+ * @param {Object} req proviene de Express
+ * @param {Object} res proviene de Express
+ * @returns retorna si la empresa fue eliminada o no
+ */
 export const deleteEmpresa = async (req, res) => {
   try {
     const { id_tributaria } = req.params;
@@ -65,6 +84,12 @@ export const deleteEmpresa = async (req, res) => {
   }
 };
 
+/**
+ * controlador para actualizar datos de empresa
+ * @param {Object} req proviene de Express
+ * @param {Object} res proviene de Express
+ * @returns retorna respuesta a update Empresa
+ */
 export const updateEmpresa = async (req, res) => {
   try {
     const { id_tributaria } = req.params;
@@ -91,6 +116,12 @@ export const updateEmpresa = async (req, res) => {
   }
 };
 
+/**
+ * Busca con una expresion regular dentro del modelo Empresas
+ * @param {Object} req proviene de Express
+ * @param {Object} res proviene de Express
+ * @returns retorna busqueda de empresas
+ */
 export const searchEmpresa = async (req, res) => {
   try {
     const { search } = req.query;
