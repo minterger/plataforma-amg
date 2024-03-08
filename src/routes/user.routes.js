@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { register, login } from "../controllers/user.controllers.js";
+import { register, login, getUser } from "../controllers/user.controllers.js";
+import { decodeToken } from "../helpers/jsonwebtoken.js";
 
 const route = Router();
 
 route.post("/user/signin", login);
 route.post("/user/signup", register);
+route.get("/user", decodeToken, getUser);
 
 export default route;

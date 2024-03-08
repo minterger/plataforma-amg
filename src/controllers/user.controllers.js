@@ -56,3 +56,7 @@ export const login = async (req, res) => {
     console.error(error);
   }
 };
+
+export const getUser = (req, res) => {
+  res.json(req.user);
+};

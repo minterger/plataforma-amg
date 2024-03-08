@@ -32,7 +32,6 @@ export const decodeToken = async (req, res, next) => {
 
     if (user) {
       req.user = user;
-      console.log(user);
       next();
     } else {
       return res.status(400).json({ message: "Usuario inexistente" });
