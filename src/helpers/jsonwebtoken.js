@@ -24,11 +24,12 @@ export const decodeToken = async (req, res, next) => {
   try {
     const { authorization } = req.headers;
 
-    if (!authorization) return res.status(404).json("Error");
+    if (!authorization)
+      return res.status(401).json({ message: "Accso no autorizado" });
 
-    const { id } = jwt.verify(authorization, process.env.PRIVATE_KEY);
+    const data = jwt.verify(authorization, process.env.PRIVATE_KEY);
 
-    const user = await User.findById(id).select("-password");
+    const user = await User.findById(data.id).select("-password");
 
     if (user) {
       req.user = user;
@@ -37,7 +38,10 @@ export const decodeToken = async (req, res, next) => {
       return res.status(400).json({ message: "Usuario inexistente" });
     }
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: "internal server error" });
+    if (error.expiredAt) {
+      return res.status(400).json({ message: "Sesion Expirada" });
+    } else {
+      return res.status(401).json({ message: "Acceso no autorizado" });
+    }
   }
 };
