@@ -7,6 +7,10 @@ const ObjectId = Schema.ObjectId;
 const ViajeSchema = new Schema(
   {
     id: { type: ObjectId, default: uniqid.time("AMG-").toUpperCase() },
+    fechaInicio: { type: Date },
+    fechaFinViaje: { type: Date },
+    fechaRecepcion: { type: Date },
+    fechaFacturacion: { type: Date },
     mic: { type: String },
     crt: { type: String },
     datos_tafico: {
@@ -17,8 +21,10 @@ const ViajeSchema = new Schema(
     emp_contratada: { type: ObjectId, required: true, ref: "Empresa" },
     datos_unidad: {
       placa_tractor: { type: ObjectId, required: true, ref: "Vehiculo" },
+      cambio_tractor: { type: ObjectId, ref: "Vehiculo" },
       placa_semi: { type: ObjectId, required: true, ref: "Vehiculo" },
       chofer: { type: ObjectId, required: true, ref: "Chofer" },
+      cambio_chofer: { type: ObjectId, ref: "Chofer" },
     },
     contratacion: {
       valor: { type: Number, required: true },
