@@ -20,34 +20,37 @@ export const getContratoFlete = async (req, res) => {
 
   generatePDF({
     id: uniqid.time("AMG-").toUpperCase(),
-    date: "9 de Febrero de 2024",
     datos_tafico: {
-      origen: "Buenos Aires, Argentina",
-      destino: "chile",
-      mercaderia: "ejemplo",
+      origen: "Rosario, Argentina",
+      destino: "Chillan, Chile",
+      mercaderia: "Aceite",
+      crt: "",
     },
     emp_contratada: {
-      empresa: "Pantone Blanca Nieves",
-      id_tributaria: "27163309217",
+      empresa: "GERARDO HORACIO LOPEZ",
+      id_tributaria: "20-17528029-5",
     },
     datos_unidad: {
-      placa_tractor: "EJE 123",
-      placa_semi: "EJE 321",
-      chofer: "Mariano Alejandro Romero",
-      dni: "32736876",
+      placa_tractor: "AA754FS",
+      placa_semi: "MDT 334",
+      chofer: "PABLO ARMANDO ZALAZAR",
+      dni: "23949375",
     },
     contratacion: {
-      valor: "2,700.00",
+      valor: "2,150.00",
       moneda: "USD",
-      condicion_pago: "VTO DE PAGO A 30 DIAS",
+      condicion_pago: "VTO DE PAGO A 45 DIAS UNA VEZ LLEGUEN LOS ORIGINALES",
     },
     datos_facturacion: {
-      razon_facturacion: "Pantone Blanca Nieves",
-      cuit_rut_facturacion: "27163309217",
+      // razon_facturacion: "M.I.L.M.A.R. S.A.",
+      // cuit_rut_facturacion: "30-71118581-6",
+      razon_facturacion: "AMG LIMITADA",
+      cuit_rut_facturacion: "77-698245-8",
+      // razon_facturacion: "PANTONE BLANCA NIEVES",
+      // cuit_rut_facturacion: "27-16330921-7",
     },
 
-    recordatorios:
-      "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    recordatorios: "",
   });
   res.sendFile(path.join(__dirname, "../public/contrato.pdf"));
 };

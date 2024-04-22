@@ -12,13 +12,35 @@ const __dirname = path.dirname(__filename);
 const generatePDF = ({
   id,
   date,
-  datos_tafico: { origen, destino, mercaderia },
+  datos_tafico: { origen, destino, mercaderia, crt },
   emp_contratada: { empresa, id_tributaria },
   datos_unidad: { placa_tractor, placa_semi, chofer, dni },
   datos_facturacion: { razon_facturacion, cuit_rut_facturacion },
   contratacion: { valor, moneda, condicion_pago },
   recordatorios,
 }) => {
+  let fecha = new Date();
+  let meses = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+  let fechaFormateada =
+    fecha.getDate() +
+    " de " +
+    meses[fecha.getMonth()] +
+    " de " +
+    fecha.getFullYear();
+
   const pdf = new jsPDF({
     format: "a4",
   });
@@ -74,7 +96,7 @@ const generatePDF = ({
   pdf.line(10, 70, 200, 70);
 
   pdf.setFontSize(10);
-  pdf.text(date, 15, 66);
+  pdf.text(date || fechaFormateada, 15, 66);
   pdf.text(`Número de contrato: ${id}`, 195, 66, null, null, "right");
 
   //////////////////////////////////////////////////
@@ -90,6 +112,9 @@ const generatePDF = ({
   pdf.text("Origen:", 17, 90);
   pdf.text("Destino:", 110, 90);
   pdf.text("Mercadería:", 17, 95);
+  if (crt) {
+    pdf.text("CRT:", 110, 95);
+  }
 
   //////////////////////////////////////////////////
 
@@ -101,6 +126,10 @@ const generatePDF = ({
   pdf.text(destino, 130, 90);
   // MERCADERIA
   pdf.text(mercaderia, 42, 95);
+  if (crt) {
+    // CRT
+    pdf.text(crt, 130, 95);
+  }
 
   pdf.line(15, 98, 195, 98);
 
