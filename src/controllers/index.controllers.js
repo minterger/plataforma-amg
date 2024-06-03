@@ -1,6 +1,7 @@
 import uniqid from "uniqid";
 import { fileURLToPath } from "url";
 import path from "path";
+import fs from "fs/promises";
 import generatePDF from "../helpers/generatepdf.js";
 import Empresa from "../models/Empresa.js";
 import Viaje from "../models/Viaje.js";
@@ -14,31 +15,44 @@ const __dirname = path.dirname(__filename);
  * @param {Object} res proviene de Express
  */
 export const getContratoFlete = async (req, res) => {
-  const { id } = req.params;
+  // const { id } = req.params;
 
-  const viaje = await Viaje.findById(id);
+  const id = uniqid.time("AMG-").toUpperCase();
+  // const id = "AMG-LWZ3OUOB";
+
+  // const viaje = await Viaje.findById(id);
 
   generatePDF({
-    id: uniqid.time("AMG-").toUpperCase(),
+    id,
+    // id: "AMG-LWUZI4VX",
+    // date: "31 de Mayo de 2024",
     datos_tafico: {
-      origen: "Rosario, Argentina",
-      destino: "Pudahuel, Chile",
-      mercaderia: "Aceite Vegetal Soja",
-      crt: "0522024MTAR208",
+      origen: "San Antonio, Chile",
+      destino: "Buenos Aires, Argentina",
+      mercaderia: "Bananas",
+      crt: "047/24LV",
     },
     emp_contratada: {
-      empresa: "SANCHEZ CRISTIAN",
-      id_tributaria: "20-32133475-0",
+      // empresa: "CCOTRANS SRL",
+      // id_tributaria: "30-71007609-6",
+      // empresa: "GARCIA, JORGE MARCELO",
+      // id_tributaria: "20-26919825-8",
+      // empresa: "GONZALEZ LUCIO",
+      // id_tributaria: "20-18521256-5",
+      empresa: "GUERRERO ROBERTO OSVALDO...",
+      id_tributaria: "30-63483048-7",
+      // empresa: "APPUGLIESE PATRICIA FANNY",
+      // id_tributaria: "27-17553716-9",
     },
     datos_unidad: {
-      placa_tractor: "AF 617 HN",
-      placa_semi: "AA 626 TN",
-      chofer: "OLIVARES CÉSAR DANIEL",
-      dni: "29224052",
+      placa_tractor: "AE 045 GP",
+      placa_semi: "AE 045 GT",
+      chofer: "NICOLAS MONTENEGRO",
+      dni: "40002908",
     },
     contratacion: {
       valor: "1,700.00",
-      moneda: "USD",
+      moneda: "USD DOLAR OFICIAL",
       condicion_pago: "VTO DE PAGO A 45 DIAS UNA VEZ LLEGUEN LOS ORIGINALES",
     },
     datos_facturacion: {
@@ -50,7 +64,12 @@ export const getContratoFlete = async (req, res) => {
       // cuit_rut_facturacion: "27-16330921-7",
     },
 
-    recordatorios: "",
+    recordatorios:
+      "A LA HORA DE ENTREGA DE DOCUMENTACION, ADJUNTAR CONTRATO DE FLETE Y FACTURA",
   });
-  res.sendFile(path.join(__dirname, "../public/contrato.pdf"));
+
+  res.sendFile(path.join(__dirname, `../public/${id}.pdf`));
+  setTimeout(async () => {
+    await fs.unlink(path.join(__dirname, `../public/${id}.pdf`));
+  }, 2);
 };

@@ -225,7 +225,7 @@ const generatePDF = ({
 
   pdf.line(15, 193, 195, 193);
 
-  pdf.save(path.join(__dirname, "../public/contrato.pdf"));
+  pdf.save(path.join(__dirname, `../public/${id}.pdf`));
 };
 
 export default generatePDF;
