@@ -33,6 +33,12 @@ export const createEmpresa = async (req, res) => {
   try {
     const { empresa, id_tributaria, type } = req.body;
 
+    if (!/[0-9]{2}-[0-9]{8}-[0-9]/g.test(id_tributaria)) {
+      return res.json(404, {
+        message: "Id tributaria incorrecta",
+      });
+    }
+
     if (type !== "transporte" && type !== "cliente" && type !== "ambos") {
       return res.json({ message: "Tipo de empresa incorrecto" });
     }
@@ -40,15 +46,19 @@ export const createEmpresa = async (req, res) => {
     const ifEmpresa = await Empresa.findOne({ id_tributaria });
 
     if (ifEmpresa) {
-      res.status(404).json({
-        message: "La empresa ya existe",
-      });
-
-      if (ifEmpresa.type !== type) {
+      if (ifEmpresa.type !== type && ifEmpresa.type !== "ambos") {
         ifEmpresa.type = "ambos";
 
         await ifEmpresa.save();
+        res.status(200).json({
+          message: "La empresa se actualizo como Cliente y Transporte",
+        });
+        return;
       }
+
+      res.status(404).json({
+        message: "La empresa ya existe: " + ifEmpresa.type,
+      });
       return;
     }
 
