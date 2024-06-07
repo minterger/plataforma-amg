@@ -27,18 +27,24 @@ export const getContratoFlete = async (req, res) => {
     // id: "AMG-LWUZI4VX",
     // date: "31 de Mayo de 2024",
     datos_tafico: {
-      origen: "San Antonio, Chile",
-      destino: "Buenos Aires, Argentina",
-      mercaderia: "Bananas",
-      crt: "053/24LV",
+      origen: "Santiago, Chile",
+      destino: "Tucuman, Argentina",
+      mercaderia: "Carton",
+      crt: "0201/24CH",
     },
     emp_contratada: {
       // empresa: "CCOTRANS SRL",
       // id_tributaria: "30-71007609-6",
+      // empresa: "PONCE FRANCO HUMBERTO",
+      // id_tributaria: "20-32728521-2",
+      empresa: "SANCHEZ CRISTIAN",
+      id_tributaria: "20-32133475-0",
       // empresa: "GARCIA, JORGE MARCELO",
       // id_tributaria: "20-26919825-8",
-      empresa: "GONZALEZ LUCIO",
-      id_tributaria: "20-18521256-5",
+      // empresa: "GONZALEZ LUCIO",
+      // id_tributaria: "20-18521256-5",
+      // empresa: "DON GIL S.A.",
+      // id_tributaria: "30-70968347-7",
       // empresa: "GUERRERO ROBERTO OSVALDO...",
       // id_tributaria: "30-63483048-7",
       // empresa: "GABRIEL FERRER S.A.",
@@ -49,23 +55,23 @@ export const getContratoFlete = async (req, res) => {
       // id_tributaria: "27-17553716-9",
     },
     datos_unidad: {
-      placa_tractor: "GIV 019",
-      placa_semi: "KGH 239",
-      chofer: "MODICA ANDRES",
-      dni: "38474888",
+      placa_tractor: "AD 475 HV",
+      placa_semi: "OJA 317",
+      chofer: "CESAR LARA",
+      dni: "23409218",
     },
     contratacion: {
-      valor: "1,800.00",
-      moneda: "USD DOLAR OFICIAL",
+      valor: "1,400.00",
+      moneda: "USD",
       condicion_pago: "VTO DE PAGO A 45 DIAS UNA VEZ LLEGUEN LOS ORIGINALES",
     },
     datos_facturacion: {
       // razon_facturacion: "M.I.L.M.A.R. S.A.",
       // cuit_rut_facturacion: "30-71118581-6",
-      // razon_facturacion: "AMG LIMITADA",
-      // cuit_rut_facturacion: "77-698245-8",
-      razon_facturacion: "PANTONE BLANCA NIEVES",
-      cuit_rut_facturacion: "27-16330921-7",
+      razon_facturacion: "AMG LIMITADA",
+      cuit_rut_facturacion: "77-698245-8",
+      // razon_facturacion: "PANTONE BLANCA NIEVES",
+      // cuit_rut_facturacion: "27-16330921-7",
     },
 
     recordatorios:
@@ -73,6 +79,7 @@ export const getContratoFlete = async (req, res) => {
   });
 
   res.sendFile(path.join(__dirname, `../public/${id}.pdf`));
+
   setTimeout(async () => {
     await fs.unlink(path.join(__dirname, `../public/${id}.pdf`));
   }, 2);
