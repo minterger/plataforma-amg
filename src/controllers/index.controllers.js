@@ -18,7 +18,7 @@ export const getContratoFlete = async (req, res) => {
   // const { id } = req.params;
 
   const id = uniqid.time("AMG-").toUpperCase();
-  // const id = "AMG-LWZ3OUOB";
+  // const id = "AMG-LXDB1LE2";
 
   // const viaje = await Viaje.findById(id);
 
@@ -27,24 +27,28 @@ export const getContratoFlete = async (req, res) => {
     // id: "AMG-LWUZI4VX",
     // date: "31 de Mayo de 2024",
     datos_tafico: {
-      origen: "Santiago, Chile",
-      destino: "Tucuman, Argentina",
-      mercaderia: "Carton",
-      crt: "0201/24CH",
+      origen: "San Antonio, Chile",
+      destino: "Buenos Aires, Argentina",
+      mercaderia: "Bananas",
+      crt: "054/24LV",
     },
     emp_contratada: {
       // empresa: "CCOTRANS SRL",
       // id_tributaria: "30-71007609-6",
       // empresa: "PONCE FRANCO HUMBERTO",
       // id_tributaria: "20-32728521-2",
-      empresa: "SANCHEZ CRISTIAN",
-      id_tributaria: "20-32133475-0",
+      // empresa: "MARENGO HERMANOS S.A.",
+      // id_tributaria: "30-71039140-4",
       // empresa: "GARCIA, JORGE MARCELO",
       // id_tributaria: "20-26919825-8",
-      // empresa: "GONZALEZ LUCIO",
-      // id_tributaria: "20-18521256-5",
+      empresa: "GONZALEZ LUCIO",
+      id_tributaria: "20-18521256-5",
+      // empresa: "LEMOS MATIAS EDUARDO",
+      // id_tributaria: "23-33966927-9",
       // empresa: "DON GIL S.A.",
       // id_tributaria: "30-70968347-7",
+      // empresa: "MANOJO S.A.",
+      // id_tributaria: "30-70848357-1",
       // empresa: "GUERRERO ROBERTO OSVALDO...",
       // id_tributaria: "30-63483048-7",
       // empresa: "GABRIEL FERRER S.A.",
@@ -55,21 +59,21 @@ export const getContratoFlete = async (req, res) => {
       // id_tributaria: "27-17553716-9",
     },
     datos_unidad: {
-      placa_tractor: "AD 475 HV",
-      placa_semi: "OJA 317",
-      chofer: "CESAR LARA",
-      dni: "23409218",
+      placa_tractor: "DLX 350",
+      placa_semi: "FFK 977",
+      chofer: "HUGO VELAZQUEZ",
+      dni: "33053996",
     },
     contratacion: {
-      valor: "1,400.00",
-      moneda: "USD",
+      valor: "1,800.00",
+      moneda: "USD DOLAR OFICIAL",
       condicion_pago: "VTO DE PAGO A 45 DIAS UNA VEZ LLEGUEN LOS ORIGINALES",
     },
     datos_facturacion: {
-      // razon_facturacion: "M.I.L.M.A.R. S.A.",
-      // cuit_rut_facturacion: "30-71118581-6",
-      razon_facturacion: "AMG LIMITADA",
-      cuit_rut_facturacion: "77-698245-8",
+      razon_facturacion: "M.I.L.M.A.R. S.A.",
+      cuit_rut_facturacion: "30-71118581-6",
+      // razon_facturacion: "TRANSPORTES AMG LIMITADA",
+      // cuit_rut_facturacion: "77-698245-8",
       // razon_facturacion: "PANTONE BLANCA NIEVES",
       // cuit_rut_facturacion: "27-16330921-7",
     },
