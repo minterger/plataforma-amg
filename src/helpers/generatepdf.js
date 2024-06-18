@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 const generatePDF = ({
   id,
   date,
-  datos_tafico: { origen, destino, mercaderia, crt },
+  datos_tafico: { origen, destino, mercaderia, crt, remito },
   emp_contratada: { empresa, id_tributaria },
   datos_unidad: { placa_tractor, placa_semi, chofer, dni },
   datos_facturacion: { razon_facturacion, cuit_rut_facturacion },
@@ -115,6 +115,9 @@ const generatePDF = ({
   if (crt) {
     pdf.text("CRT:", 110, 95);
   }
+  if (remito) {
+    pdf.text("Remito:", 110, 95);
+  }
 
   //////////////////////////////////////////////////
 
@@ -129,6 +132,9 @@ const generatePDF = ({
   if (crt) {
     // CRT
     pdf.text(crt, 130, 95);
+  }
+  if (remito) {
+    pdf.text(remito, 130, 95);
   }
 
   pdf.line(15, 98, 195, 98);
