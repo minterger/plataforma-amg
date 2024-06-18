@@ -8,14 +8,14 @@ import Empresa from "../models/Empresa.js";
  */
 export const getEmpresas = async (req, res) => {
   try {
-    const { page, limit, search } = req.query;
+    const { page, limit, filter, search, type } = req.query;
 
     const options = {
       page: page || 1,
       limit: limit || 10,
     };
 
-    const empresas = await Empresa.paginate({}, options);
+    const empresas = await Empresa.paginate({ type }, options);
     return res.json(empresas);
   } catch (error) {
     res.status(500).json({ message: "internal server error" });
@@ -39,7 +39,7 @@ export const createEmpresa = async (req, res) => {
       });
     }
 
-    if (type !== "transporte" && type !== "cliente" && type !== "ambos") {
+    if (!["transporte", "cliente", "ambos"].includes(type)) {
       return res.json({ message: "Tipo de empresa incorrecto" });
     }
 
