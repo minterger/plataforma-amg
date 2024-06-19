@@ -39,19 +39,19 @@ export const createEmpresa = async (req, res) => {
       });
     }
 
-    if (!["transporte", "cliente", "ambos"].includes(type)) {
+    if (!["transporte", "cliente"].includes(type)) {
       return res.json({ message: "Tipo de empresa incorrecto" });
     }
 
     const ifEmpresa = await Empresa.findOne({ id_tributaria });
 
     if (ifEmpresa) {
-      if (ifEmpresa.type !== type && ifEmpresa.type !== "ambos") {
-        ifEmpresa.type = "ambos";
+      if (!ifEmpresa.type.includes(type)) {
+        ifEmpresa.type.push(type);
 
         await ifEmpresa.save();
         res.status(200).json({
-          message: "La empresa se actualizo como Cliente y Transporte",
+          message: "La empresa se actualizo y se añadio como " + type,
         });
         return;
       }
@@ -65,7 +65,7 @@ export const createEmpresa = async (req, res) => {
     const newEmpresa = new Empresa({
       empresa,
       id_tributaria,
-      type,
+      type: [type],
     });
 
     await newEmpresa.save();
