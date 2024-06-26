@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2";
 
 const ObjectId = Schema.ObjectId;
 
@@ -27,5 +28,7 @@ const EmpresaSchema = new Schema({
     },
   ],
 });
+
+EmpresaSchema.plugin(mongoosePaginate);
 
 export default model("Empresa", EmpresaSchema);
