@@ -7,15 +7,23 @@ import Empresa from "../models/Empresa.js";
  * @returns retorna todas las empresas
  */
 export const getEmpresas = async (req, res) => {
+  const { page, limit, filter, search, type } = req.query;
   try {
-    const { page, limit, filter, search, type } = req.query;
-
     const options = {
       page: page || 1,
       limit: limit || 10,
     };
 
-    const empresas = await Empresa.paginate({ type }, options);
+    let empresas;
+
+    if (filter && search) {
+      empresas = await Empresa.paginate({
+        type,
+        [filter]: search,
+      });
+    } else {
+      empresas = await Empresa.paginate({ type }, options);
+    }
     return res.json(empresas);
   } catch (error) {
     res.status(500).json({ message: "internal server error" });
