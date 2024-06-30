@@ -43,7 +43,9 @@ export const getEmpresa = async (req, res) => {
   try {
     const { id, type } = req.params;
 
-    const empresa = await Empresa.findOne({ _id: id, type });
+    const empresa = await Empresa.findOne({ _id: id, type }).populate(
+      type === "transporte" ? "vehiculo choferes" : "viajes"
+    );
 
     if (empresa) {
       res.json(empresa);
@@ -173,65 +175,5 @@ export const updateEmpresa = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "internal server error" });
     console.error(error);
-  }
-};
-
-/**
- * Busca con una expresion regular dentro del modelo Empresas
- * @param {Object} req proviene de Express
- * @param {Object} res proviene de Express
- * @returns retorna busqueda de empresas
- */
-export const searchEmpresa = async (req, res) => {
-  try {
-    const { search } = req.query;
-
-    const searchedEmpresas = await Empresa.find({
-      empresa: { $regex: `.*${search}.*` },
-    });
-
-    if (!searchedEmpresa.length)
-      return res.status(404).json({
-        message: "No se encontro ningun resultado",
-      });
-
-    res.json({
-      searchedEmpresas,
-    });
-  } catch (error) {
-    res.status(500).json({ message: "internal server error" });
-    console.error(error);
-  }
-};
-
-/**
- * Obtiene una empressa y puebla los choferes
- * @param {Object} req proviene de Express
- * @param {Object} res proviene de Express
- * @returns
- */
-export const getOneEmpresa = async (req, res) => {
-  try {
-    const { id_tributaria } = req.body;
-
-    if (!id_tributaria)
-      return res.status(404).json({ message: "Id Tributaria bacia" });
-
-    const empresa = await Empresa.findOne({ id_tributaria }).populate(
-      "choferes"
-    );
-
-    if (empresa) {
-      res.json(empresa);
-    } else {
-      res.status(404).json({
-        message: "No existe esta empresa",
-      });
-    }
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({
-      message: "internal server error",
-    });
   }
 };
