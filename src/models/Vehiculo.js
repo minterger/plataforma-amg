@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2";
 
 const ObjectId = Schema.ObjectId;
 
@@ -9,7 +10,9 @@ const VehiculoSchema = new Schema({
   tipo: { type: String },
   año: { type: Number },
   ejes: { type: Number },
-  empresa: { type: ObjectId, ref: "Empresa" },
+  empresa: [{ type: ObjectId, ref: "Empresa" }],
 });
+
+VehiculoSchema.plugin(mongoosePaginate);
 
 export default model("Vehiculo", VehiculoSchema);
