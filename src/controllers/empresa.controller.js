@@ -33,6 +33,34 @@ export const getEmpresas = async (req, res) => {
 };
 
 /**
+ * controlador que retorna una empresa por id_tributaria
+ * @param {Object} req proviene de Express
+ * @param {Object} res proviene de Express
+ * @returns retorna una empresa
+ */
+
+export const getEmpresa = async (req, res) => {
+  try {
+    const { id, type } = req.params;
+
+    const empresa = await Empresa.findOne({ _id: id, type });
+
+    if (empresa) {
+      res.json(empresa);
+    } else {
+      res.status(404).json({
+        message: "No existe esta empresa",
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      message: "internal server error",
+    });
+  }
+};
+
+/**
  * controlador para crear una Empresa requiere dato "empresa" y "id_tributaria" en el body
  * @param {Object} req proviene de Express
  * @param {Object} res proviene de Express
