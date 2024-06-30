@@ -19,7 +19,8 @@ export const getEmpresas = async (req, res) => {
     if (filter && search) {
       empresas = await Empresa.paginate({
         type,
-        [filter]: search,
+        // buscar por empresa usando un regex que busca en cualquier parte de la cadena dentro de filter sin importar mayusculas o minusculas
+        [filter]: { $regex: `.*${search}.*`, $options: "i" },
       });
     } else {
       empresas = await Empresa.paginate({ type }, options);
