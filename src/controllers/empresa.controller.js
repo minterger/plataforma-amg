@@ -124,9 +124,9 @@ export const createEmpresa = async (req, res) => {
  */
 export const deleteEmpresa = async (req, res) => {
   try {
-    const { id_tributaria } = req.params;
+    const { id } = req.params;
 
-    const ifEmpresa = await Empresa.findOne({ id_tributaria });
+    const ifEmpresa = await Empresa.findById(id);
 
     if (!ifEmpresa)
       return res.status(404).json({
@@ -152,10 +152,10 @@ export const deleteEmpresa = async (req, res) => {
  */
 export const updateEmpresa = async (req, res) => {
   try {
-    const { id_tributaria } = req.params;
-    const { empresa, new_id_tributaria } = req.body;
+    const { id } = req.params;
+    const { empresa, id_tributaria } = req.body;
 
-    const searchEmpresa = await Empresa.findOne({ id_tributaria });
+    const searchEmpresa = await Empresa.findById({ id });
 
     if (!searchEmpresa)
       return res.status(404).json({
@@ -163,7 +163,7 @@ export const updateEmpresa = async (req, res) => {
       });
 
     searchEmpresa.empresa = empresa || searchEmpresa.empresa;
-    searchEmpresa.id_tributaria = new_id_tributaria || id_tributaria;
+    searchEmpresa.id_tributaria = id_tributaria || searchEmpresa.id_tributaria;
 
     await searchEmpresa.save();
 

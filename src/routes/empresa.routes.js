@@ -16,8 +16,8 @@ router.post("/empresas", decodeToken, createEmpresa);
 
 router.get("/empresas/:id/:type", decodeToken, getEmpresa);
 
-router.put("/empresas/:id_tributaria", decodeToken, updateEmpresa);
+router.put("/empresas/:id", decodeToken, updateEmpresa);
 
-router.delete("/empresas/:id_tributaria", decodeToken, deleteEmpresa);
+router.delete("/empresas/:id", decodeToken, deleteEmpresa);
 
 export default router;
