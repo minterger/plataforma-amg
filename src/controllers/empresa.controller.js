@@ -72,7 +72,11 @@ export const createEmpresa = async (req, res) => {
   try {
     const { empresa, id_tributaria, type } = req.body;
 
-    if (!/[0-9]{2}-[0-9]{8}-[0-9]/g.test(id_tributaria)) {
+    const format1 = /^(\d{2})(\d{3})(\d{3})(\d{1})?$/;
+    const format2 = /^(\d{2})(\d{8})?(\d{1})?$/;
+
+    // Devolver true si concuerda con alguno de los formatos
+    if (format1.test(id_tributaria) || format2.test(id_tributaria)) {
       return res.json(404, {
         message: "Id tributaria incorrecta",
       });
