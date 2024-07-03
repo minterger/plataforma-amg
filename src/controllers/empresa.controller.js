@@ -130,9 +130,21 @@ export const createEmpresa = async (req, res) => {
  */
 export const deleteEmpresa = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id, type } = req.params;
 
     const ifEmpresa = await Empresa.findById(id);
+
+    if (!ifEmpresa.type.includes(type)) {
+      return res.status(404).json({
+        message: "La empresa no es de este tipo",
+      });
+    } else if (ifEmpresa.type.length > 1) {
+      ifEmpresa.type = ifEmpresa.type.filter((t) => t !== type);
+      await ifEmpresa.save();
+      return res.json({
+        message: "La empresa se actualizo y se elimino como " + type,
+      });
+    }
 
     if (!ifEmpresa)
       return res.status(404).json({
