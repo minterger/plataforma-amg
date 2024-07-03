@@ -41,7 +41,7 @@ export const createChofer = async (req, res) => {
   }
 };
 
-const updateChofer = async (req, res) => {
+export const updateChofer = async (req, res) => {
   const { idBody, nombre, apellido, dni, oldEmpresa, newEmpresa } = req.body;
   const idQuery = req.query.id;
 
