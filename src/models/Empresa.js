@@ -9,7 +9,7 @@ const EmpresaSchema = new Schema({
   type: [{ type: String, required: true }],
   //id tributaria puede ser DNI o RUT o lo que se use en ese pais
   id_tributaria: { type: String, required: true },
-  vehiculo: [
+  vehiculos: [
     {
       type: ObjectId,
       ref: "Vehiculo",
