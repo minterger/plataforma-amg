@@ -134,26 +134,26 @@ export const deleteEmpresa = async (req, res) => {
 
     const ifEmpresa = await Empresa.findById(id);
 
-    if (!ifEmpresa.type.includes(type)) {
-      return res.status(404).json({
-        message: "La empresa no es de este tipo",
-      });
-    } else if (ifEmpresa.type.length > 1) {
-      ifEmpresa.type = ifEmpresa.type.filter((t) => t !== type);
-      await ifEmpresa.save();
-      return res.json({
-        message: "La empresa se actualizo y se elimino como " + type,
-      });
-    }
-
     if (!ifEmpresa)
       return res.status(404).json({
         message: "La empresa no existe",
       });
 
-    await ifEmpresa.deleteOne();
+    if (!ifEmpresa.type.includes(type)) {
+      return res.status(404).json({
+        message: "La empresa se elimino correctamente",
+      });
+    } else {
+      ifEmpresa.type = ifEmpresa.type.filter((t) => t !== type);
+    }
 
-    res.json({
+    if (!!ifEmpresa.type.length) {
+      await ifEmpresa.save();
+    } else {
+      await ifEmpresa.deleteOne();
+    }
+
+    return res.json({
       message: "La empresa se elimino correctamente",
     });
   } catch (error) {
