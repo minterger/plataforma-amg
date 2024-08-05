@@ -18,19 +18,18 @@ export const getContratoFlete = async (req, res) => {
   // const { id } = req.params;
 
   const id = uniqid.time("AMG-").toUpperCase();
-  // const id = "AMG-LXDB1LE2";
+  // const id = "AMG-LZ9WY0G2";
 
   // const viaje = await Viaje.findById(id);
 
   generatePDF({
     id,
-    // id: "AMG-LWUZI4VX",
-    date: "19 de Julio de 2024",
+    // date: "19 de Julio de 2024",
     datos_tafico: {
-      origen: "Mendoza, Argentina",
+      origen: "Bahia Blanca, Argentina",
       destino: "Santiago, Chile",
-      mercaderia: "Tensiometro",
-      crt: "AR.318.005995",
+      mercaderia: "Polietileno",
+      crt: "003AR2742024",
       remito: "",
     },
     emp_contratada: {
@@ -38,8 +37,8 @@ export const getContratoFlete = async (req, res) => {
       // id_tributaria: "",
       // empresa: "GABRIEL ROLANDO VERCESI",
       // id_tributaria: "20-23141665-0",
-      // empresa: "RAMOS RAMON RICARDO",
-      // id_tributaria: "20-10038819-8",
+      empresa: "RAMOS RAMON RICARDO",
+      id_tributaria: "20-10038819-8",
       // empresa: "CCOTRANS SRL",
       // id_tributaria: "30-71007609-6",
       // empresa: "PONCE FRANCO HUMBERTO",
@@ -58,8 +57,8 @@ export const getContratoFlete = async (req, res) => {
       // id_tributaria: "30-70968347-7",
       // empresa: "MANOJO S.A.",
       // id_tributaria: "30-70848357-1",
-      empresa: "GUERRERO ROBERTO OSVALDO...",
-      id_tributaria: "30-63483048-7",
+      // empresa: "GUERRERO ROBERTO OSVALDO...",
+      // id_tributaria: "30-63483048-7",
       // empresa: "GABRIEL FERRER S.A.",
       // id_tributaria: "30-71279930-3",
       // empresa: "TRANSPORTES ZAMARIAN S.R.L.",
@@ -74,13 +73,13 @@ export const getContratoFlete = async (req, res) => {
       // id_tributaria: "76.560.088-K",
     },
     datos_unidad: {
-      placa_tractor: "AE 045 GP",
-      placa_semi: "AE 045 GT",
-      chofer: "NICOLAS MONTENEGRO",
-      dni: "40002908",
+      placa_tractor: "AC 876 JB",
+      placa_semi: "AA 134 JE",
+      chofer: "AXEL FURNIER",
+      dni: "44009047",
     },
     contratacion: {
-      valor: "1,500.00",
+      valor: "1,900.00",
       moneda: "USD",
       condicion_pago: "VTO DE PAGO A 45 DIAS UNA VEZ LLEGUEN LOS ORIGINALES",
       // condicion_pago: "VTO DE PAGO A 30 DIAS UNA VEZ LLEGUEN LOS ORIGINALES",
@@ -100,6 +99,8 @@ export const getContratoFlete = async (req, res) => {
 
     recordatorios:
       "A LA HORA DE ENTREGA DE DOCUMENTACION, ADJUNTAR CONTRATO DE FLETE Y FACTURA",
+    // "A LA HORA DE ENTREGA DE DOCUMENTACION, ADJUNTAR CONTRATO DE FLETE Y FACTURA,  TENER EN CUENTA QUE AL MOMENTO DEL PAGO SE RESTA EL 7% DE RETENCION POR FACTURACION EN TUCUMAN",
+    // "A LA HORA DE ENTREGA DE DOCUMENTACION, ADJUNTAR CONTRATO DE FLETE Y FACTURA, TOMAR EN CUENTA QUE LOS 40 USD POR CLIENTE ES APARTIR DEL SEGUNDO CLIENTE, NO TOMAR EL PRIMER CLIENTE",
     // "A LA HORA DE ENTREGA DE DOCUMENTACION, ADJUNTAR CONTRATO DE FLETE",
   });
 
