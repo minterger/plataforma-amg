@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div
+      class="flex justify-center flex-col items-center min-h-screen bg-slate-200"
+    >
+      <!-- h1 -> Generar Contrato de Flete -->
+      <h1 class="text-2xl my-4">Generar Contrato de Flete</h1>
+
+      <form action="" id="form" class=" flex flex-col w-full max-w-xl gap-2">
+        <div
+          class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
+        >
+          <!-- h2 -> Datos de Trafico -->
+          <h2 class="text-xl my-2 cursor-pointer" id="button_trafico">
+            Datos de Trafico
+          </h2>
+
+          <div class="hidden flex-col" id="trafico">
+            <!-- input -> Origen -->
+            <label for="origen">Origen</label>
+            <input
+              class="border border-dashed rounded-md p-2"
+              type="text"
+              id="origen"
+              name="origen"
+            />
+
+            <!-- input -> Destino -->
+            <label for="destino">Destino</label>
+            <input
+              class="border border-dashed rounded-md p-2"
+              type="text"
+              id="destino"
+              name="destino"
+            />
+
+            <!-- input -> Mercaderia -->
+            <label for="mercaderia">Mercaderia</label>
+            <input
+              class="border border-dashed rounded-md p-2"
+              type="text"
+              id="mercaderia"
+              name="mercaderia"
+            />
+
+            <!-- input -> CRT: opcional -->
+            <label for="crt">CRT</label>
+            <input
+              class="border border-dashed rounded-md p-2"
+              type="text"
+              id="crt"
+              name="crt"
+            />
+
+            <!-- input -> Remito -->
+            <label for="remito">Remito</label>
+            <input
+              class="border border-dashed rounded-md p-2"
+              type="text"
+              id="remito"
+              name="remito"
+            />
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
+        >
+          <!-- h2 -> Empresa Contratada -->
+          <h2 class="text-xl my-2 cursor-pointer" id="button_empresa">
+            Empresa Contratada
+          </h2>
+
+          <div class="hidden flex-col" id="empresa">
+            <!-- input -> Razon Social -->
+            <label for="razon_social">Razon Social</label>
+            <input
+              class="border border-dashed rounded-md p-2"
+              type="text"
+              id="razon_social"
+              name="razon_social"
+            />
+
+            <!-- input -> CUIT -->
+            <label for="cuit">CUIT</label>
+            <input
+              class="border border-dashed rounded-md p-2"
+              type="text"
+              id="cuit"
+              name="cuit"
+            />
+
+            
+        </div>
+      </form>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
