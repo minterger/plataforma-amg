@@ -1,4 +1,4 @@
 /node_modules
 *.pdf
 *.env
-/public/styles.css
+/src/public/styles.css
