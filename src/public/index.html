@@ -13,7 +13,7 @@
       <!-- h1 -> Generar Contrato de Flete -->
       <h1 class="text-2xl my-4">Generar Contrato de Flete</h1>
 
-      <form action="" id="form" class=" flex flex-col w-full max-w-xl gap-2">
+      <form action="" id="form" class="flex flex-col w-full max-w-xl gap-2">
         <div
           class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
         >
@@ -89,16 +89,110 @@
             />
 
             <!-- input -> CUIT -->
-            <label for="cuit">CUIT</label>
+            <label for="cuit">CUIT o RUT</label>
             <input
               class="border border-dashed rounded-md p-2"
               type="text"
               id="cuit"
               name="cuit"
             />
-
-            
+          </div>
         </div>
+
+        <div
+          class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
+        >
+          <!-- h2 -> Datos de unidad -->
+          <h2 class="text-xl my-2 cursor-pointer" id="button_unidad">
+            Datos de Unidad
+          </h2>
+
+          <!-- div -> hidden -->
+          <div class="hidden flex-col" id="unidad">
+            <!-- input -> Patente Tractor-->
+            <label for="patente_tractor">Patente Tractor</label>
+            <input
+              class="border border-dashed rounded-md p-2"
+              type="text"
+              id="patente_tractor"
+              name="patente_tractor"
+            />
+
+            <!-- input -> patente semi-->
+            <label for="patente_semi">Patente Semi</label>
+            <input
+              class="border border-dashed rounded-md p-2"
+              type="text"
+              id="patente_semi"
+              name="patente_semi"
+            />
+
+            <!-- input -> Chofer -->
+            <label for="chofer">Chofer</label>
+            <input
+              class="border border-dashed rounded-md p-2"
+              type="text"
+              id="chofer"
+              name="chofer"
+            />
+
+            <!-- input -> DNI -->
+            <label for="dni">DNI</label>
+            <input
+              class="border border-dashed rounded-md p-2"
+              type="text"
+              id="dni"
+              name="dni"
+            />
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
+        >
+          <!-- h2 -> datos de contratacion -->
+          <h2 class="text-xl my-2 cursor-pointer" id="button_contratacion">
+            Datos de Contratacion
+          </h2>
+
+          <!-- div -> hidden -->
+          <div class="hidden flex-col" id="contratacion">
+            <!-- input -> valor -->
+            <label for="valor">Valor Flete</label>
+            <input
+              class="border border-dashed rounded-md p-2"
+              type="text"
+              id="valor"
+              name="valor"
+            />
+
+            <!-- input -> moneda -->
+            <label for="moneda">Moneda</label>
+            <input
+              class="border border-dashed rounded-md p-2"
+              type="text"
+              id="moneda"
+              name="moneda"
+              placeholder="default: USD"
+            />
+
+            <!-- input -> cndicion de pago -->
+            <label for="condicion_pago">Condicion de Pago</label>
+            <input
+              class="border border-dashed rounded-md p-2"
+              type="text"
+              id="condicion_pago"
+              name="condicion_pago"
+              placeholder="default: VTO DE PAGO A 45 DIAS UNA VEZ LLEGUEN LOS ORIGINALES"
+            />
+          </div>
+        </div>
+
+        <button
+          class="bg-blue-500 text-white p-2 rounded-md"
+          type="submit"
+          id="submit"
+        >
       </form>
     </div>
     <script src="./main.js"></script>

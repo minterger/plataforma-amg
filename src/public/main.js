@@ -21,6 +21,14 @@ button_empresa.addEventListener("click", () => {
   desplegarSection("#empresa");
 });
 
+button_unidad.addEventListener("click", () => {
+  desplegarSection("#unidad");
+});
+
+button_contratacion.addEventListener("click", () => {
+  desplegarSection("#contratacion");
+});
+
 // obtener datos de los inputs
 const inputs = document.querySelectorAll("input");
 const datos = {};
