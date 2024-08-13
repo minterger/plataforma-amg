@@ -6,8 +6,10 @@ form.addEventListener("submit", (event) => {
 
 const desplegarSection = (id) => {
   const section = document.querySelector(id);
-  section.classList.toggle("hidden");
-  section.classList.toggle("flex");
+  section.classList.toggle("visible");
+  section.classList.toggle("invisible");
+  section.classList.toggle("max-h-0");
+  section.classList.toggle("max-h-full");
 };
 
 const button_trafico = document.querySelector("#button_trafico");
@@ -27,6 +29,10 @@ button_unidad.addEventListener("click", () => {
 
 button_contratacion.addEventListener("click", () => {
   desplegarSection("#contratacion");
+});
+
+button_facturacion.addEventListener("click", () => {
+  desplegarSection("#facturacion");
 });
 
 // obtener datos de los inputs

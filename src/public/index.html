@@ -18,15 +18,18 @@
           class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
         >
           <!-- h2 -> Datos de Trafico -->
-          <h2 class="text-xl my-2 cursor-pointer" id="button_trafico">
+          <h2 class="text-xl py-2 cursor-pointer" id="button_trafico">
             Datos de Trafico
           </h2>
 
-          <div class="hidden flex-col" id="trafico">
+          <div
+            class="invisible max-h-0 flex flex-col overflow-hidden transition-all"
+            id="trafico"
+          >
             <!-- input -> Origen -->
             <label for="origen">Origen</label>
             <input
-              class="border border-dashed rounded-md p-2"
+              class="bg-slate-50 border border-dashed rounded-md p-2"
               type="text"
               id="origen"
               name="origen"
@@ -35,7 +38,7 @@
             <!-- input -> Destino -->
             <label for="destino">Destino</label>
             <input
-              class="border border-dashed rounded-md p-2"
+              class="bg-slate-50 border border-dashed rounded-md p-2"
               type="text"
               id="destino"
               name="destino"
@@ -44,7 +47,7 @@
             <!-- input -> Mercaderia -->
             <label for="mercaderia">Mercaderia</label>
             <input
-              class="border border-dashed rounded-md p-2"
+              class="bg-slate-50 border border-dashed rounded-md p-2"
               type="text"
               id="mercaderia"
               name="mercaderia"
@@ -53,7 +56,7 @@
             <!-- input -> CRT: opcional -->
             <label for="crt">CRT</label>
             <input
-              class="border border-dashed rounded-md p-2"
+              class="bg-slate-50 border border-dashed rounded-md p-2"
               type="text"
               id="crt"
               name="crt"
@@ -62,7 +65,7 @@
             <!-- input -> Remito -->
             <label for="remito">Remito</label>
             <input
-              class="border border-dashed rounded-md p-2"
+              class="bg-slate-50 border border-dashed rounded-md p-2"
               type="text"
               id="remito"
               name="remito"
@@ -74,15 +77,18 @@
           class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
         >
           <!-- h2 -> Empresa Contratada -->
-          <h2 class="text-xl my-2 cursor-pointer" id="button_empresa">
+          <h2 class="text-xl py-2 cursor-pointer" id="button_empresa">
             Empresa Contratada
           </h2>
 
-          <div class="hidden flex-col" id="empresa">
+          <div
+            class="invisible max-h-0 flex flex-col overflow-hidden transition-all"
+            id="empresa"
+          >
             <!-- input -> Razon Social -->
             <label for="razon_social">Razon Social</label>
             <input
-              class="border border-dashed rounded-md p-2"
+              class="bg-slate-50 border border-dashed rounded-md p-2"
               type="text"
               id="razon_social"
               name="razon_social"
@@ -91,7 +97,7 @@
             <!-- input -> CUIT -->
             <label for="cuit">CUIT o RUT</label>
             <input
-              class="border border-dashed rounded-md p-2"
+              class="bg-slate-50 border border-dashed rounded-md p-2"
               type="text"
               id="cuit"
               name="cuit"
@@ -103,34 +109,43 @@
           class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
         >
           <!-- h2 -> Datos de unidad -->
-          <h2 class="text-xl my-2 cursor-pointer" id="button_unidad">
+          <h2 class="text-xl py-2 cursor-pointer" id="button_unidad">
             Datos de Unidad
           </h2>
 
           <!-- div -> hidden -->
-          <div class="hidden flex-col" id="unidad">
+          <div
+            class="invisible max-h-0 flex flex-col overflow-hidden transition-all"
+            id="unidad"
+          >
             <!-- input -> Patente Tractor-->
-            <label for="patente_tractor">Patente Tractor</label>
-            <input
-              class="border border-dashed rounded-md p-2"
-              type="text"
-              id="patente_tractor"
-              name="patente_tractor"
-            />
+            <div class="flex gap-2">
+              <div class="w-1/2 flex flex-col">
+                <label for="patente_tractor">Patente Tractor</label>
+                <input
+                  class="bg-slate-50 border border-dashed rounded-md p-2"
+                  type="text"
+                  id="patente_tractor"
+                  name="patente_tractor"
+                />
+              </div>
 
-            <!-- input -> patente semi-->
-            <label for="patente_semi">Patente Semi</label>
-            <input
-              class="border border-dashed rounded-md p-2"
-              type="text"
-              id="patente_semi"
-              name="patente_semi"
-            />
+              <div class="w-1/2 flex flex-col">
+                <!-- input -> patente semi-->
+                <label for="patente_semi">Patente Semi</label>
+                <input
+                  class="bg-slate-50 border border-dashed rounded-md p-2"
+                  type="text"
+                  id="patente_semi"
+                  name="patente_semi"
+                />
+              </div>
+            </div>
 
             <!-- input -> Chofer -->
             <label for="chofer">Chofer</label>
             <input
-              class="border border-dashed rounded-md p-2"
+              class="bg-slate-50 border border-dashed rounded-md p-2"
               type="text"
               id="chofer"
               name="chofer"
@@ -139,7 +154,7 @@
             <!-- input -> DNI -->
             <label for="dni">DNI</label>
             <input
-              class="border border-dashed rounded-md p-2"
+              class="bg-slate-50 border border-dashed rounded-md p-2"
               type="text"
               id="dni"
               name="dni"
@@ -151,16 +166,19 @@
           class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
         >
           <!-- h2 -> datos de contratacion -->
-          <h2 class="text-xl my-2 cursor-pointer" id="button_contratacion">
+          <h2 class="text-xl py-2 cursor-pointer" id="button_contratacion">
             Datos de Contratacion
           </h2>
 
           <!-- div -> hidden -->
-          <div class="hidden flex-col" id="contratacion">
+          <div
+            class="invisible max-h-0 flex flex-col overflow-hidden transition-all"
+            id="contratacion"
+          >
             <!-- input -> valor -->
             <label for="valor">Valor Flete</label>
             <input
-              class="border border-dashed rounded-md p-2"
+              class="bg-slate-50 border border-dashed rounded-md p-2"
               type="text"
               id="valor"
               name="valor"
@@ -169,7 +187,7 @@
             <!-- input -> moneda -->
             <label for="moneda">Moneda</label>
             <input
-              class="border border-dashed rounded-md p-2"
+              class="bg-slate-50 border border-dashed rounded-md p-2"
               type="text"
               id="moneda"
               name="moneda"
@@ -179,11 +197,44 @@
             <!-- input -> cndicion de pago -->
             <label for="condicion_pago">Condicion de Pago</label>
             <input
-              class="border border-dashed rounded-md p-2"
+              class="bg-slate-50 border border-dashed rounded-md p-2"
               type="text"
               id="condicion_pago"
               name="condicion_pago"
               placeholder="default: VTO DE PAGO A 45 DIAS UNA VEZ LLEGUEN LOS ORIGINALES"
+            />
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
+        >
+          <!-- h2 -> datos de facturacion -->
+          <h2 class="text-xl py-2 cursor-pointer" id="button_facturacion">
+            Datos de Facturacion
+          </h2>
+
+          <!-- div -> hidden -->
+          <div
+            class="invisible max-h-0 flex flex-col overflow-hidden transition-all"
+            id="facturacion"
+          >
+            <!-- input -> razon social -->
+            <label for="razon_social_facturacion">Razon Social</label>
+            <input
+              class="bg-slate-50 border border-dashed rounded-md p-2"
+              type="text"
+              id="razon_social_facturacion"
+              name="razon_social_facturacion"
+            />
+
+            <!-- input -> cuit -->
+            <label for="cuit_facturacion">CUIT o RUT</label>
+            <input
+              class="bg-slate-50 border border-dashed rounded-md p-2"
+              type="text"
+              id="cuit_facturacion"
+              name="cuit_facturacion"
             />
           </div>
         </div>
@@ -193,6 +244,8 @@
           type="submit"
           id="submit"
         >
+          Generar Contrato
+        </button>
       </form>
     </div>
     <script src="./main.js"></script>
