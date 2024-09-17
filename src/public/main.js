@@ -2,14 +2,30 @@ const form = document.querySelector("#form");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  console.log(datos);
+  fetch("/viaje", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(datos),
+  })
+    .then((res) => res.blob())
+    .then((blob) => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "contrato-flete.pdf";
+      a.click();
+      URL.revokeObjectURL(url);
+    });
 });
 
 const desplegarSection = (id) => {
   const section = document.querySelector(id);
-  section.classList.toggle("visible");
-  section.classList.toggle("invisible");
-  section.classList.toggle("max-h-0");
-  section.classList.toggle("max-h-full");
+  ["visible", "invisible", "max-h-full", "max-h-0"].map((className) =>
+    section.classList.toggle(className)
+  );
 };
 
 const button_trafico = document.querySelector("#button_trafico");
