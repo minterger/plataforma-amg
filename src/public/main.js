@@ -15,7 +15,9 @@ form.addEventListener("submit", (event) => {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "contrato-flete.pdf";
+      a.download = `contrato de flete - ${datos.chofer} - ${
+        datos.crt || datos.remito || "N/A"
+      } - ${datos.razon_social}.pdf`;
       a.click();
       URL.revokeObjectURL(url);
     });
