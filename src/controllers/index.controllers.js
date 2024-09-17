@@ -9,6 +9,14 @@ import generatePDF from "../helpers/generatepdf.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+String.prototype.toCamelCase = function () {
+  return this.trim()
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
+    .join(" ");
+};
+
 /**
  * obtiene el contrate de flete segun el id del viaje
  * @param {Object} req proviene de Express
@@ -124,35 +132,35 @@ export const getContratoFleteIndex = async (req, res) => {
     id,
     date,
     datos_tafico: {
-      origen: req.body.origen,
-      destino: req.body.destino,
-      mercaderia: req.body.mercaderia,
-      crt: req.body.crt,
-      remito: req.body.remito,
+      origen: req.body.origen.toCamelCase(),
+      destino: req.body.destino.toCamelCase(),
+      mercaderia: req.body.mercaderia.trim(),
+      crt: req.body.crt.trim(),
+      remito: req.body.remito.trim(),
     },
     emp_contratada: {
-      empresa: req.body.razon_social,
-      id_tributaria: req.body.cuit,
+      empresa: req.body.razon_social.trim().toUpperCase(),
+      id_tributaria: req.body.cuit.trim(),
     },
     datos_unidad: {
-      placa_tractor: req.body.patente_tractor,
-      placa_semi: req.body.patente_semi,
-      chofer: req.body.chofer,
-      dni: req.body.dni,
+      placa_tractor: req.body.patente_tractor.trim().toUpperCase(),
+      placa_semi: req.body.patente_semi.trim().toUpperCase(),
+      chofer: req.body.chofer.trim().toUpperCase(),
+      dni: req.body.dni.trim(),
     },
     contratacion: {
       valor: req.body.valor
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         .concat(".00"),
-      moneda: req.body.moneda || "USD",
+      moneda: req.body.moneda.trim() || "USD",
       condicion_pago:
-        req.body.condicion_pago ||
+        req.body.condicion_pago.trim().toUpperCase() ||
         "VTO DE PAGO A 45 DIAS UNA VEZ LLEGUEN LOS ORIGINALES",
     },
     datos_facturacion: {
-      razon_facturacion: req.body.razon_social_facturacion,
-      cuit_rut_facturacion: req.body.cuit_facturacion,
+      razon_facturacion: req.body.razon_social_facturacion.trim().toUpperCase(),
+      cuit_rut_facturacion: req.body.cuit_facturacion.trim(),
     },
 
     recordatorios:
