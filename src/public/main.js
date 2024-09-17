@@ -23,8 +23,8 @@ form.addEventListener("submit", (event) => {
 
 const desplegarSection = (id) => {
   const section = document.querySelector(id);
-  ["visible", "invisible", "max-h-full", "max-h-0"].map((className) =>
-    section.classList.toggle(className)
+  ["visible", "invisible", "opacity-0", "max-h-screen", "max-h-0"].map(
+    (className) => section.classList.toggle(className)
   );
 };
 
