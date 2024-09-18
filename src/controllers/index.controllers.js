@@ -166,6 +166,7 @@ export const getContratoFleteIndex = async (req, res) => {
     },
 
     recordatorios:
+      req.body.descripcion_contrato?.trim().slice(0, 250) ||
       "A LA HORA DE ENTREGA DE DOCUMENTACION, ADJUNTAR CONTRATO DE FLETE Y FACTURA",
   });
 
