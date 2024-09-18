@@ -8,7 +8,7 @@
   </head>
   <body class="overflow-y-scroll">
     <div
-      class="flex justify-center flex-col items-center min-h-screen bg-slate-200"
+      class="flex justify-center flex-col items-center min-h-screen bg-slate-200 p-2"
     >
       <!-- h1 -> Generar Contrato de Flete -->
       <h1 class="text-2xl my-4">Generar Contrato de Flete</h1>
@@ -18,7 +18,10 @@
           class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
         >
           <!-- h2 -> Datos de Trafico -->
-          <h2 class="text-xl py-2 cursor-pointer" id="button_trafico">
+          <h2
+            class="text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
+            id="button_trafico"
+          >
             Datos de Trafico
           </h2>
 
@@ -33,6 +36,7 @@
               type="text"
               id="origen"
               name="origen"
+              required
             />
 
             <!-- input -> Destino -->
@@ -42,6 +46,7 @@
               type="text"
               id="destino"
               name="destino"
+              required
             />
 
             <!-- input -> Mercaderia -->
@@ -51,6 +56,7 @@
               type="text"
               id="mercaderia"
               name="mercaderia"
+              required
             />
 
             <!-- input -> CRT: opcional -->
@@ -77,7 +83,10 @@
           class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
         >
           <!-- h2 -> Empresa Contratada -->
-          <h2 class="text-xl py-2 cursor-pointer" id="button_empresa">
+          <h2
+            class="text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
+            id="button_empresa"
+          >
             Empresa Contratada
           </h2>
 
@@ -92,6 +101,7 @@
               type="text"
               id="razon_social"
               name="razon_social"
+              required
             />
 
             <!-- input -> CUIT -->
@@ -101,6 +111,7 @@
               type="text"
               id="cuit"
               name="cuit"
+              required
             />
           </div>
         </div>
@@ -109,7 +120,10 @@
           class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
         >
           <!-- h2 -> Datos de unidad -->
-          <h2 class="text-xl py-2 cursor-pointer" id="button_unidad">
+          <h2
+            class="text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
+            id="button_unidad"
+          >
             Datos de Unidad
           </h2>
 
@@ -129,6 +143,7 @@
                   type="text"
                   id="patente_tractor"
                   name="patente_tractor"
+                  required
                 />
               </div>
 
@@ -140,6 +155,7 @@
                   type="text"
                   id="patente_semi"
                   name="patente_semi"
+                  required
                 />
               </div>
             </div>
@@ -151,6 +167,7 @@
               type="text"
               id="chofer"
               name="chofer"
+              required
             />
 
             <!-- input -> DNI -->
@@ -160,6 +177,7 @@
               type="text"
               id="dni"
               name="dni"
+              required
             />
           </div>
         </div>
@@ -168,7 +186,10 @@
           class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
         >
           <!-- h2 -> datos de contratacion -->
-          <h2 class="text-xl py-2 cursor-pointer" id="button_contratacion">
+          <h2
+            class="text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
+            id="button_contratacion"
+          >
             Datos de Contratacion
           </h2>
 
@@ -181,9 +202,10 @@
             <label class="mt-2 mb-1" for="valor">Valor Flete</label>
             <input
               class="bg-slate-50 border border-dashed rounded-md p-2"
-              type="text"
+              type="number"
               id="valor"
               name="valor"
+              required
             />
 
             <!-- input -> moneda -->
@@ -214,7 +236,10 @@
           class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
         >
           <!-- h2 -> datos de facturacion -->
-          <h2 class="text-xl py-2 cursor-pointer" id="button_facturacion">
+          <h2
+            class="text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
+            id="button_facturacion"
+          >
             Datos de Facturacion
           </h2>
 
@@ -232,6 +257,7 @@
               type="text"
               id="razon_social_facturacion"
               name="razon_social_facturacion"
+              required
             />
 
             <!-- input -> cuit -->
@@ -241,10 +267,39 @@
               type="text"
               id="cuit_facturacion"
               name="cuit_facturacion"
+              required
             />
           </div>
         </div>
 
+        <div
+          class="flex flex-col w-full border border-dashed rounded-md p-4 bg-white"
+        >
+          <!-- h2 -> datos de facturacion -->
+          <h2
+            class="text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
+            id="button_descripcion"
+          >
+            Descripcion
+          </h2>
+
+          <!-- div -> hidden -->
+          <div
+            class="invisible opacity-0 transition-all max-h-0 flex flex-col overflow-hidden"
+            id="descripcion"
+          >
+            <!-- input -> razon social -->
+            <label class="mt-2 mb-1" for="razon_social_facturacion"
+              >Descripcion</label
+            >
+            <textarea
+              class="bg-slate-50 border border-dashed rounded-md p-2"
+              cols="10"
+              id="descripcion_contrato"
+              name="descripcion_contrato"
+            ></textarea>
+          </div>
+        </div>
         <button
           class="bg-blue-500 text-white p-2 rounded-md"
           type="submit"

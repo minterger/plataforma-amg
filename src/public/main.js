@@ -15,7 +15,7 @@ form.addEventListener("submit", (event) => {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `contrato de flete - ${datos.chofer} - ${
+      a.download = `Contrato de Flete - ${datos.chofer} - ${
         datos.crt || datos.remito || "N/A"
       } - ${datos.razon_social}.pdf`;
       a.click();
@@ -29,9 +29,6 @@ const desplegarSection = (id) => {
     (className) => section.classList.toggle(className)
   );
 };
-
-const button_trafico = document.querySelector("#button_trafico");
-const button_empresa = document.querySelector("#button_empresa");
 
 button_trafico.addEventListener("click", () => {
   desplegarSection("#trafico");
@@ -51,6 +48,10 @@ button_contratacion.addEventListener("click", () => {
 
 button_facturacion.addEventListener("click", () => {
   desplegarSection("#facturacion");
+});
+
+button_descripcion.addEventListener("click", () => {
+  desplegarSection("#descripcion");
 });
 
 // obtener datos de los inputs

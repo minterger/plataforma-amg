@@ -132,35 +132,37 @@ export const getContratoFleteIndex = async (req, res) => {
     id,
     date,
     datos_tafico: {
-      origen: req.body.origen.toCamelCase(),
-      destino: req.body.destino.toCamelCase(),
-      mercaderia: req.body.mercaderia.trim(),
-      crt: req.body.crt.trim(),
-      remito: req.body.remito.trim(),
+      origen: req.body.origen?.toCamelCase(),
+      destino: req.body.destino?.toCamelCase(),
+      mercaderia: req.body.mercaderia?.trim(),
+      crt: req.body.crt?.trim(),
+      remito: req.body.remito?.trim(),
     },
     emp_contratada: {
-      empresa: req.body.razon_social.trim().toUpperCase(),
-      id_tributaria: req.body.cuit.trim(),
+      empresa: req.body.razon_social?.trim().toUpperCase(),
+      id_tributaria: req.body.cuit?.trim(),
     },
     datos_unidad: {
-      placa_tractor: req.body.patente_tractor.trim().toUpperCase(),
-      placa_semi: req.body.patente_semi.trim().toUpperCase(),
-      chofer: req.body.chofer.trim().toUpperCase(),
-      dni: req.body.dni.trim(),
+      placa_tractor: req.body.patente_tractor?.trim().toUpperCase(),
+      placa_semi: req.body.patente_semi?.trim().toUpperCase(),
+      chofer: req.body.chofer?.trim().toUpperCase(),
+      dni: req.body.dni?.trim(),
     },
     contratacion: {
       valor: req.body.valor
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         .concat(".00"),
-      moneda: req.body.moneda.trim() || "USD",
+      moneda: req.body.moneda?.trim() || "USD",
       condicion_pago:
-        req.body.condicion_pago.trim().toUpperCase() ||
+        req.body.condicion_pago?.trim().toUpperCase() ||
         "VTO DE PAGO A 45 DIAS UNA VEZ LLEGUEN LOS ORIGINALES",
     },
     datos_facturacion: {
-      razon_facturacion: req.body.razon_social_facturacion.trim().toUpperCase(),
-      cuit_rut_facturacion: req.body.cuit_facturacion.trim(),
+      razon_facturacion: req.body.razon_social_facturacion
+        ?.trim()
+        .toUpperCase(),
+      cuit_rut_facturacion: req.body.cuit_facturacion?.trim(),
     },
 
     recordatorios:
