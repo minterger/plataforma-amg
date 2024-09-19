@@ -56,10 +56,19 @@ button_descripcion.addEventListener("click", () => {
 
 // obtener datos de los inputs
 const inputs = document.querySelectorAll("input");
+const textareas = document.querySelectorAll("textarea");
+
 const datos = {};
 
 inputs.forEach((input) => {
   input.addEventListener("input", (event) => {
+    datos[event.target.name] = event.target.value;
+  });
+});
+
+textareas.forEach((textarea) => {
+  textarea.addEventListener("input", (event) => {
+    event.target.value = event.target.value.slice(0, 250);
     datos[event.target.name] = event.target.value;
   });
 });
