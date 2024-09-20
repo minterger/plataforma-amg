@@ -14,11 +14,20 @@
       <img
         src="./icon.png"
         alt="icon"
-        class="w-80 h-20 drop-shadow-sm object-cover p-2"
+        class="w-80 h-20 mt-3 drop-shadow-sm object-cover p-2"
       />
 
       <!-- h1 -> Generar Contrato de Flete -->
       <h1 class="text-2xl my-4">Generar Contrato de Flete</h1>
+
+      <!-- boton desplegar todos los sections con estilo anchor-->
+      <button
+        class="text-blue-500 underline mb-2"
+        id="desplegar"
+        data-desplegado="false"
+      >
+        Desplegar todos los campos
+      </button>
 
       <form action="" id="form" class="flex flex-col w-full max-w-xl gap-2">
         <div
@@ -26,10 +35,11 @@
         >
           <!-- h2 -> Datos de Trafico -->
           <h2
-            class="text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
+            class="flex items-center gap-2 text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
             id="button_trafico"
           >
             Datos de Trafico
+            <box-icon class="transition-all" name="right-arrow-alt"></box-icon>
           </h2>
 
           <div
@@ -91,10 +101,11 @@
         >
           <!-- h2 -> Empresa Contratada -->
           <h2
-            class="text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
+            class="flex items-center gap-2 text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
             id="button_empresa"
           >
             Empresa Contratada
+            <box-icon class="transition-all" name="right-arrow-alt"></box-icon>
           </h2>
 
           <div
@@ -128,10 +139,11 @@
         >
           <!-- h2 -> Datos de unidad -->
           <h2
-            class="text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
+            class="flex items-center gap-2 text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
             id="button_unidad"
           >
             Datos de Unidad
+            <box-icon class="transition-all" name="right-arrow-alt"></box-icon>
           </h2>
 
           <!-- div -> hidden -->
@@ -194,10 +206,11 @@
         >
           <!-- h2 -> datos de contratacion -->
           <h2
-            class="text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
+            class="flex items-center gap-2 text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
             id="button_contratacion"
           >
             Datos de Contratacion
+            <box-icon class="transition-all" name="right-arrow-alt"></box-icon>
           </h2>
 
           <!-- div -> hidden -->
@@ -244,10 +257,11 @@
         >
           <!-- h2 -> datos de facturacion -->
           <h2
-            class="text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
+            class="flex items-center gap-2 text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
             id="button_facturacion"
           >
             Datos de Facturacion
+            <box-icon class="transition-all" name="right-arrow-alt"></box-icon>
           </h2>
 
           <!-- div -> hidden -->
@@ -284,10 +298,11 @@
         >
           <!-- h2 -> datos de facturacion -->
           <h2
-            class="text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
+            class="flex items-center gap-2 text-xl py-2 cursor-pointer underline underline-offset-2 decoration-transparent decoration-4 decoration-dotted hover:decoration-blue-600 transition-colors"
             id="button_descripcion"
           >
             Recordatorios
+            <box-icon class="transition-all" name="right-arrow-alt"></box-icon>
           </h2>
 
           <!-- div -> hidden -->
@@ -301,7 +316,7 @@
             >
             <textarea
               class="bg-slate-50 border border-dashed rounded-md p-2"
-              cols="10"
+              rows="4"
               id="descripcion_contrato"
               name="descripcion_contrato"
               placeholder="Recordatorios, condiciones, etc. Máximo 250 caracteres"
@@ -317,6 +332,9 @@
         </button>
       </form>
     </div>
+
+    <!-- scripts -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="./main.js"></script>
   </body>
 </html>
