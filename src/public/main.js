@@ -27,9 +27,14 @@ form.addEventListener("submit", (event) => {
 
 const desplegarSection = (id, e) => {
   const section = document.querySelector(id);
-  ["visible", "invisible", "opacity-0", "max-h-screen", "max-h-0"].map(
-    (className) => section.classList.toggle(className)
-  );
+  [
+    "visible",
+    "invisible",
+    "opacity-0",
+    "max-h-screen",
+    "max-h-0",
+    "opacity-100",
+  ].map((className) => section.classList.toggle(className));
 
   // tagName is a h2
   if (e.target.tagName === "H2") {
@@ -79,7 +84,7 @@ button_desplegar.addEventListener("click", () => {
       ["invisible", "max-h-0", "opacity-0"].map((className) =>
         div.classList.remove(className)
       );
-      ["visible", "max-h-screen"].map((className) =>
+      ["visible", "max-h-screen", "opacity-100"].map((className) =>
         div.classList.add(className)
       );
 
@@ -90,7 +95,7 @@ button_desplegar.addEventListener("click", () => {
     divsVisible.forEach((div) => {
       const h2 = div.previousElementSibling;
       h2.querySelector("box-icon").classList.toggle("rotate-90");
-      ["visible", "max-h-screen"].map((className) =>
+      ["opacity-100", "visible", "max-h-screen"].map((className) =>
         div.classList.remove(className)
       );
       ["opacity-0", "max-h-0", "invisible"].map((className) =>
